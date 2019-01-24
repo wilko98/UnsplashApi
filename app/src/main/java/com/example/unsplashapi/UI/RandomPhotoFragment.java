@@ -11,20 +11,29 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.unsplashapi.R;
-import com.example.unsplashapi.common.BasePresenter;
 import com.example.unsplashapi.common.PresenterFragment;
-import com.example.unsplashapi.utils.ApiUtils;
 import com.squareup.picasso.Picasso;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+public class RandomPhotoFragment extends PresenterFragment implements RandomPhotoView{
 
-public class RandomPhotoFragment extends PresenterFragment {
+    @InjectPresenter
+    RandomPhotoPresenter presenter;
+
+    @ProvidePresenter
+    RandomPhotoPresenter providePresenter(){return new RandomPhotoPresenter();}
+
+    protected RandomPhotoPresenter getPresenter() {
+        return presenter;
+    }
+
 
     ImageView imgageView;
-    Button b;
+
+    Button mRandomizeBtm;
+    Button mDownloadBtn;
 
     public static Fragment newInstance() {
         return new RandomPhotoFragment();
@@ -35,7 +44,8 @@ public class RandomPhotoFragment extends PresenterFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fr_random_photo,container,false);
         imgageView = v.findViewById(R.id.randomPhoto);
-        b = v.findViewById(R.id.randomBtn);
+        mRandomizeBtm = v.findViewById(R.id.randomBtn);
+        mDownloadBtn = v.findViewById(R.id.downloadBtn);
         return v;
     }
 
@@ -43,33 +53,39 @@ public class RandomPhotoFragment extends PresenterFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         imgageView.setImageResource(R.mipmap.ic_launcher_round);
         Picasso.with(getActivity()).load("https://images.unsplash.com/photo-1547822050-0fdeeb81c946?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60").into(imgageView);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getRandomPhoto();
-            }
-        });
-    }
 
-    private void getRandomPhoto() {
-        Toast.makeText(getActivity(), "Finding photo", Toast.LENGTH_SHORT).show();
-        ApiUtils.getApiService().getRandomPhoto()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .onErrorReturn(throwable -> {
-                    Toast.makeText(getActivity(), "error", Toast.LENGTH_SHORT).show();
-                    return null;
-                })
-                .subscribe(
-                        randomPhotoResponse ->{
-                            Picasso.with(getActivity()).load(randomPhotoResponse.getStandartImageUrl()).into(imgageView);
-
-                        }
-                );
     }
 
     @Override
-    protected BasePresenter getPresenter() {
-        return null;
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mRandomizeBtm.setOnClickListener(v -> presenter.getRandomPhoto());
+        mDownloadBtn.setOnClickListener(v -> presenter.downloadImage());
+    }
+
+
+    @Override
+    public void showStart(String text) {
+        Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showRandomPhoto(String url) {
+        Picasso.with(getActivity()).load(url).into(imgageView);
+    }
+
+    @Override
+    public void showRefresh() {
+
+    }
+
+    @Override
+    public void hideRefresh() {
+
+    }
+
+    @Override
+    public void showError() {
+        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
     }
 }

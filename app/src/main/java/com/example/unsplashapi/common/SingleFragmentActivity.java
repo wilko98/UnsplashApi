@@ -1,6 +1,7 @@
 package com.example.unsplashapi.common;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,14 +12,26 @@ import com.example.unsplashapi.R;
 
 public abstract class SingleFragmentActivity extends AppCompatActivity {
 
+    private SharedPreferences sp;
+    private SharedPreferences.Editor ed;
+
+    public void putToSP(String key,String value){
+        ed.putString(key,value);
+    }
+
+    public SharedPreferences getSp() {
+        return sp;
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
-
+        sp=getPreferences(MODE_PRIVATE);
         if (savedInstanceState == null) {
             changeFragment(getFragment());
         }
+        ed = sp.edit();
 
     }
 
