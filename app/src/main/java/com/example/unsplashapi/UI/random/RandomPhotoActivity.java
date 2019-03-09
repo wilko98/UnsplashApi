@@ -1,5 +1,6 @@
 package com.example.unsplashapi.UI.random;
 
+import android.app.DownloadManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,8 +16,17 @@ import com.ferfalk.simplesearchview.SimpleSearchView;
 
 public class RandomPhotoActivity extends SingleFragmentActivity {
 
+    public DownloadManager downloadManager;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        downloadManager = downloadManager = (DownloadManager) getSystemService(getApplication().DOWNLOAD_SERVICE);
+        super.onCreate(savedInstanceState);
+    }
+
     @Override
     protected Fragment getFragment() {
+        Fragment fragment = RandomPhotoFragment.newInstance();
         return RandomPhotoFragment.newInstance();
     }
 
@@ -39,5 +49,9 @@ public class RandomPhotoActivity extends SingleFragmentActivity {
                 break;
         }
         return false;
+    }
+
+    public DownloadManager getDownloadManager() {
+        return downloadManager;
     }
 }
