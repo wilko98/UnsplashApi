@@ -1,14 +1,9 @@
-package com.example.unsplashapi.UI;
+package com.example.unsplashapi.UI.random;
 
 import android.annotation.SuppressLint;
-import android.widget.Toast;
-
 import com.arellomobile.mvp.InjectViewState;
 import com.example.unsplashapi.common.BasePresenter;
 import com.example.unsplashapi.utils.ApiUtils;
-import com.squareup.picasso.Downloader;
-import com.squareup.picasso.Picasso;
-
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 

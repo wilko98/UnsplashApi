@@ -1,4 +1,4 @@
-package com.example.unsplashapi.UI;
+package com.example.unsplashapi.UI.random;
 
 import com.example.unsplashapi.common.BaseView;
 

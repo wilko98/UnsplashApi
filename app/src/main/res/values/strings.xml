@@ -2,4 +2,5 @@
     <string name="app_name">UnsplashApi</string>
     <string name="randomize">randomize</string>
     <string name="downloadBtn">Download</string>
+    <string name="app_subtitle">photos</string>
 </resources>

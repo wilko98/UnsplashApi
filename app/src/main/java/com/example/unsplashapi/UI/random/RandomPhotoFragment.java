@@ -1,4 +1,4 @@
-package com.example.unsplashapi.UI;
+package com.example.unsplashapi.UI.random;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -60,7 +60,10 @@ public class RandomPhotoFragment extends PresenterFragment implements RandomPhot
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mRandomizeBtm.setOnClickListener(v -> presenter.getRandomPhoto());
-        mDownloadBtn.setOnClickListener(v -> presenter.downloadImage());
+        mDownloadBtn.setOnClickListener(v -> {
+
+        });
+//        mDownloadBtn.setOnClickListener(v -> presenter.d());
     }
 
 

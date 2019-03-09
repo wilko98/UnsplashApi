@@ -10,6 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.unsplashapi.R;
 
+import java.sql.Time;
+import java.util.Timer;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+
 public abstract class SingleFragmentActivity extends AppCompatActivity {
 
     private SharedPreferences sp;
@@ -43,7 +48,6 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
 
     public void changeFragment(Fragment fragment) {
         boolean addToBackStack = getSupportFragmentManager().findFragmentById(R.id.fragmentContainer) != null;
-
         FragmentTransaction transaction = getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragmentContainer, fragment);

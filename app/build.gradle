@@ -12,6 +12,7 @@ android {
         buildConfigField "String" ,"API_URL", '"https://api.unsplash.com/"'
         buildConfigField "String" ,"ACCESS_KEY", '"bd62126574d597fdf8368caf9a5c9a1cd745d48952777cce8109a083cf8bfe1d"'
         buildConfigField "String" ,"SECRET_KEY", '"f7230c8493ff88228d82f551294d23016caa635a6dbaa16705c7f16d42edd496"'
+
     }
     buildTypes {
         release {
@@ -52,4 +53,6 @@ dependencies {
     implementation 'com.arello-mobile:moxy-app-compat:1.5.3'
 
     implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    implementation 'com.github.Ferfalk:SimpleSearchView:0.1.3'
 }
