@@ -20,8 +20,8 @@ public class RandomPhotoActivity extends SingleFragmentActivity {
         return RandomPhotoFragment.newInstance();
     }
 
-    protected void openSearchFragment(){
-        changeFragment(SearchFragment.newInstance());
+    protected void openSearchFragment() {
+            changeFragment(SearchFragment.newInstance());
     }
 
     @Override
@@ -33,9 +33,8 @@ public class RandomPhotoActivity extends SingleFragmentActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.action_search:
-                
                 openSearchFragment();
                 break;
         }

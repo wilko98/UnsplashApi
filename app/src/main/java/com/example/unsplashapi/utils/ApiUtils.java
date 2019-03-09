@@ -21,8 +21,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiUtils {
 
-
-
     private static OkHttpClient sClient;
     private static Retrofit sRetrofit;
     private static Gson sGson;

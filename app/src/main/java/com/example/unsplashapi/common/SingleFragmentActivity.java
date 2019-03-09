@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.example.unsplashapi.R;
 
@@ -40,6 +41,9 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
 
     }
 
+    protected void showToast(String text){
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    }
     protected int getLayout(){
         return R.layout.ac_container;
     }
