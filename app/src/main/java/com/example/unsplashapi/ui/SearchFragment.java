@@ -1,4 +1,4 @@
-package com.example.unsplashapi.ui.Search;
+package com.example.unsplashapi.ui;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,10 +13,7 @@ import com.example.unsplashapi.R;
 public class SearchFragment extends Fragment {
 
     public static SearchFragment newInstance() {
-        Bundle args = new Bundle();
-        SearchFragment fragment = new SearchFragment();
-        fragment.setArguments(args);
-        return fragment;
+        return new SearchFragment();
     }
     @Nullable
     @Override

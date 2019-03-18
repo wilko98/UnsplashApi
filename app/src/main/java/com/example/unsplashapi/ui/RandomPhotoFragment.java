@@ -1,4 +1,4 @@
-package com.example.unsplashapi.ui.random;
+package com.example.unsplashapi.ui;
 
 import android.annotation.SuppressLint;
 import android.app.DownloadManager;

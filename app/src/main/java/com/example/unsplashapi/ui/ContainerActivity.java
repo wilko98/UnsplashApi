@@ -1,4 +1,4 @@
-package com.example.unsplashapi.ui.random;
+package com.example.unsplashapi.ui;
 
 import android.app.DownloadManager;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.unsplashapi.R;
-import com.example.unsplashapi.ui.Search.SearchFragment;
 import com.example.unsplashapi.common.SingleFragmentActivity;
 
 public class ContainerActivity extends SingleFragmentActivity {
