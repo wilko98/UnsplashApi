@@ -1,20 +1,18 @@
-package com.example.unsplashapi.UI.random;
+package com.example.unsplashapi.ui.random;
 
 import android.app.DownloadManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.unsplashapi.R;
-import com.example.unsplashapi.UI.Search.SearchFragment;
+import com.example.unsplashapi.ui.Search.SearchFragment;
 import com.example.unsplashapi.common.SingleFragmentActivity;
-import com.ferfalk.simplesearchview.SimpleSearchView;
 
-public class RandomPhotoActivity extends SingleFragmentActivity {
+public class ContainerActivity extends SingleFragmentActivity {
 
     public DownloadManager downloadManager;
 

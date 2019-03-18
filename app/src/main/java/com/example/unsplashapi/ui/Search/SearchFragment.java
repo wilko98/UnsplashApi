@@ -1,4 +1,4 @@
-package com.example.unsplashapi.UI.Search;
+package com.example.unsplashapi.ui.Search;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.unsplashapi.R;
-import com.example.unsplashapi.common.BasePresenter;
-import com.example.unsplashapi.common.PresenterFragment;
 
 public class SearchFragment extends Fragment {
 
