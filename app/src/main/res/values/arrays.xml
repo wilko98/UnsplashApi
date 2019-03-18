@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="resolutions">
+        <item>Standart</item>
+        <item>Full</item>
+        <item>Raw</item>
+        <item>Small</item>
+    </string-array>>
+</resources>
