@@ -5,8 +5,14 @@
     >
     <item
         android:id="@+id/action_search"
-        android:icon="@drawable/ic_search_white_24dp"
+        android:icon="@drawable/ic_search_24dp"
+        android:orderInCategory="100"
+        android:title="@string/hint_search"
+        app:showAsAction="always|collapseActionView" />
+    <item
+        android:id="@+id/action_random"
+        android:icon="@drawable/ic_cube_24dp"
         android:title="@string/search_hint"
         app:iconTint="@android:color/white"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always|collapseActionView" />
 </menu>

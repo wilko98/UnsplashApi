@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.example.unsplashapi.R;
 import com.example.unsplashapi.common.SingleFragmentActivity;
+import com.example.unsplashapi.ui.SearchFragment.SearchFragment;
 
 public class ContainerActivity extends SingleFragmentActivity {
 
@@ -23,12 +24,7 @@ public class ContainerActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment getFragment() {
-        Fragment fragment = RandomPhotoFragment.newInstance();
-        return RandomPhotoFragment.newInstance();
-    }
-
-    protected void openSearchFragment() {
-            changeFragment(SearchFragment.newInstance());
+        return SearchFragment.newInstance();
     }
 
     @Override
@@ -42,13 +38,13 @@ public class ContainerActivity extends SingleFragmentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_search:
-                openSearchFragment();
+                changeFragment(SearchFragment.newInstance());
                 break;
+            case R.id.action_random:
+                changeFragment(RandomPhotoFragment.newInstance());
+                    break;
         }
         return false;
     }
 
-    public DownloadManager getDownloadManager() {
-        return downloadManager;
-    }
 }
