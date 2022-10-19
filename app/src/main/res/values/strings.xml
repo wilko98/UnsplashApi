@@ -3,4 +3,6 @@
     <string name="randomize">randomize</string>
     <string name="downloadBtn">Download</string>
     <string name="app_subtitle">photos</string>
+    <string name="hint_search">Search</string>
+    <string name="search_hint">random</string>
 </resources>

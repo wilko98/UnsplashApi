@@ -1,20 +1,18 @@
-package com.example.unsplashapi.UI.random;
+package com.example.unsplashapi.ui;
 
 import android.app.DownloadManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.unsplashapi.R;
-import com.example.unsplashapi.UI.Search.SearchFragment;
 import com.example.unsplashapi.common.SingleFragmentActivity;
-import com.ferfalk.simplesearchview.SimpleSearchView;
+import com.example.unsplashapi.ui.SearchFragment.SearchFragment;
 
-public class RandomPhotoActivity extends SingleFragmentActivity {
+public class ContainerActivity extends SingleFragmentActivity {
 
     public DownloadManager downloadManager;
 
@@ -26,12 +24,7 @@ public class RandomPhotoActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment getFragment() {
-        Fragment fragment = RandomPhotoFragment.newInstance();
-        return RandomPhotoFragment.newInstance();
-    }
-
-    protected void openSearchFragment() {
-            changeFragment(SearchFragment.newInstance());
+        return SearchFragment.newInstance();
     }
 
     @Override
@@ -45,13 +38,13 @@ public class RandomPhotoActivity extends SingleFragmentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_search:
-                openSearchFragment();
+                changeFragment(SearchFragment.newInstance());
                 break;
+            case R.id.action_random:
+                changeFragment(RandomPhotoFragment.newInstance());
+                    break;
         }
         return false;
     }
 
-    public DownloadManager getDownloadManager() {
-        return downloadManager;
-    }
 }
